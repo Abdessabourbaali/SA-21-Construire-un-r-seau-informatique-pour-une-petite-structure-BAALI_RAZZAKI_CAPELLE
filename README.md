@@ -2,12 +2,10 @@ SAE21-Construire-un-réseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI
 =============================================
 
 ## Contexte pédagogique
----
 
 * Le travail sera réalisé en groupe de 3 étudiants. Les groupes vous seront fournis par tirage au sort. Un rendu collectif ET un rendu individuel seront exigés en fin de SAE. Des évaluations intermédiaires seront réalisées sur des points particuliers tout au long de la SAE par les encadrants.
 
 ## Contexte professionnel
----
 
 * Le professionnel R&T peut être sollicité pour construire et mettre en place le réseau informatique d'une « petite » entreprise multi-sites. L'objectif est alors de répondre aux besoins de commutation, de routage, de services réseaux de base et de sécurité formulés pour la structure. Ce réseau s'appuie
 sur des équipements et des services informatiques incontournables mais fondamentaux pour fournir à la structure un réseau fonctionnel et structuré.
@@ -17,20 +15,17 @@ sur des équipements et des services informatiques incontournables mais fondamen
     Afin de limiter le nombre de machines à utiliser pour cette SAE, on divisera de façon artificielle le réseau en 2 parties : une première physique qui assurera l’interconnexion avec internet (représenté par le réseau de l’IUT) et la DMZ. Cette dernière sera interfacée avec une seconde partie émulée correspondant au réseau LAN de l’entreprise. Le LAN comprendra un serveur WEB pour l’Intranet ainsi que les postes client des différents services. Le schéma de principe est donné sur la figure 1.
 
 ## Matériels à notre disposition
----
 
 * Switchs cisco
 * Routeurs microtic
 * Ordinateurs des salles de TP réseaux
 
 ## Logiciels à disposition
----
 
 * Logiciel de simulation de réseau (Packettracer / GNS3 /…)
 * Github
 
 ## Cahier des charges
----
 
 La petite entreprise pour laquelle vous travaillez souhaite mettre en place son réseau d’entreprise.
 
