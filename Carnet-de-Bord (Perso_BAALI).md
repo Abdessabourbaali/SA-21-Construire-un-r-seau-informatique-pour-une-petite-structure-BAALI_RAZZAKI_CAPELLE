@@ -78,3 +78,8 @@
         ip nat inside source list 1 pool POOL
         exit
         wr mem
+
+### Séance du 14/04/2022 (TD encadrée) :
+---
+
+* Dans cette séance 
