@@ -1,5 +1,4 @@
 # Carnet de Bord personnelle (Abdessabour-BAALI-RT1-A1)
----
 
 ### Séance du 25/03/2022 (TD non-encadrée) : 
 ---
