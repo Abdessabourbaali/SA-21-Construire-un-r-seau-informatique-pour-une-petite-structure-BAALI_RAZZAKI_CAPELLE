@@ -83,3 +83,91 @@
 ---
 
 * Dans cette séance 
+
+### Séance du 21/04/2022 (TD encadrée)
+---
+
+* Dans cette séance je me suis attaqué à la cinfiguration du serveur DNS.
+* Tout d'abord j'installe l'outil permettant de configuré le DNS (bind9) grâce à apt install.
+
+        apt install bind9 bind9utils dnsutils
+
+* Ensuite je me rend dans */etc/hostname* ici j'y modifie le nom de ma machine pour ma part je l'ai renommer 213-15.
+ 
+* IMPORTANT : redémarrer la machine après avoir modifier le fichier */etc/hostname* sinon la modification ne se fera pas.
+*
+* IMPORTANT : donner une configuration réseau qui fonctionne.
+
+* Après j'ai modifié le fichier resolv.conf qui se trouve dans */etc*.
+        
+        search testsae21.fr
+        nameserver 10.213.15.1
+        nameserver 8.8.8.8
+        
+* Puis je me rend dans le répertoire où nous allons pouvoir tout configurer */etc/bind*.
+
+* Le premier fichier de configuration que nous allons touché est *named.conf.local* dans ce fichier nous allons y spécifier les zones dans laquelle le DNS va opérer.
+
+        zone "testsae21.fr" {                  // le nom de zone de recherche directe
+                type master;                            // le type de la zone de recherche directe
+                file "/etc/bind/db.testsae21.fr";     // le fichier de configuration de la zone directe
+        };
+
+        zone "15.213.10.in-addr.arpa." {      // l'adresse de la zone de recherce inversée
+                type master;                          // le type de la zone de recherche inversée
+                file "/etc/bind/inverse";    // le fichier de configuration de la zone de recherche inversée
+        };
+        
+* Ensuite nous allons copier à l'aide de la commande *cp* le fichier de base db.local vers notre 2eme fichier de configuration que nous allons appeler db.testsae21.fr.
+
+        cp db.local db.testsae21.fr
+       
+* Puis nous nous dirigeons vers le fichier **db.testsae21.fr** et nous allons modifier le fichier comme ceci :
+
+        ;
+        ; BIND data file for local loopback interface
+        ;
+        $TTL    604800
+        @       IN      SOA     213-15.testsae21.fr. root.testsae21.fr. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+        ;
+        @       IN      NS      213-15.testsae21.fr.
+        213-15  IN      A       10.213.15.1
+        www     IN      CNAME   213-15.testsae21.fr.
+        
+* Après cela nous allons copier notre fichier **db.testsae21.fr** vers un nouveau fichier qui se nommera inverse
+
+        cp db.testsae21.fr inverse
+
+* Puis je modifie le fichier inverse comme ceci :
+
+        ;
+        ; BIND data file for local loopback interface
+        ;
+        $TTL    604800
+        @       IN      SOA     213-15.testsae21.fr. root.testsae21.fr. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+        ;
+        @       IN      NS      213-15.testsae21.fr.
+        213-15  IN      A       10.213.15.1
+        1       IN      PTR     213-15.testsae21.fr.
+        
+ * Enfin nous enregistrons nos modifications avec la commande **systemctl restart bind9** et je vérifie l'état du dns avec la commande **systemctl status bind9**
+
+* Mutltiple test peuvent être éffectuer pour vérifier le bon fonctionnement du DNS comme avec : nslookup ou dig.
+* Pour ma part j'ai utilisé les 2, pour ce faire à l'aide de la commande **nslookup www** la commande nous retourne le nom du serveur et son adresse IP:
+
+        Server:		10.213.15.1
+        Address:	10.213.15.1#53
+
+        www.testsae21.fr	canonical name = 213-15.testsae21.fr.
+        Name:	213-15.testsae21.fr
+        Address: 10.213.15.1
