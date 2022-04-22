@@ -49,7 +49,7 @@ Par la suite, on a réfléchi et mis en place un plan d'adressage pour notre ré
 
 </br>
 
-<img src="https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE/blob/main/Plan_Addressage.png" style="width: 800px">
+<img src="https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE/blob/main/SAE-21/Plan_Addressage.png" style="width: 800px">
 
 </br>
 
