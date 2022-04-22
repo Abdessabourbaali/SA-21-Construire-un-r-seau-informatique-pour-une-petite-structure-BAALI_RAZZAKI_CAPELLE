@@ -154,3 +154,5 @@ Après avoir réalisé une page web assez simple, nous avons configuré le serve
 
 # Mise en place et configuration de la partie physique
 
+# Problème rencontré
+Lors de la configuration du routeur pour la partie physique, notre routeur ne répondez plus et ne possédais pas d'adresse IP. Nous avons donc du passer par le logiciel WinBox pour le reconfigurer.
