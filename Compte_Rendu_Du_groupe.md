@@ -47,7 +47,7 @@ La mise en place du réseau se découpe en deux grandes parties :
 
 Premièrement, nous avons commencé par mettre en place un environement de travail professionelle. Pour cela nous avons décidé d'utiliser Github afin d'organiser et de mettre en communs tous nos fichier. Vous pouvez retrouver le Github ICI : https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE
 
-Par la suite, on a réfléchis et mis en place plan d'addressage pour notre réseau. Ce plan est disponible dans les fichier joint sous le nom de "Plan_Addressage.drawio"
+Par la suite, on a réfléchis et mis en place plan d'addressage pour notre réseau. Ce plan est disponible dans les fichier joint sous le nom de "Plan_Addressage.png"
 
 <img src="https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE/blob/main/Plan_Addressage.png" style="width: 800px">
 
