@@ -47,7 +47,11 @@ Premièrement, nous avons commencé par mettre en place un environnement de trav
 
 Par la suite, on a réfléchi et mis en place un plan d'adressage pour notre réseau. Ce plan est disponible dans les fichiers joint sous le nom de "Plan_Addressage.png"
 
+</br>
+
 <img src="https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE/blob/main/Plan_Addressage.png" style="width: 800px">
+
+</br>
 
 Une fois ces deux choses terminées, nous avons commencé à réaliser la partie virtuelle puis dans les dernières séances, nous nous sommes occupés de la partie physique.
 
