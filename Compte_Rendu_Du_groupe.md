@@ -49,7 +49,7 @@ Premièrement, nous avons commencé par mettre en place un environement de trava
 
 Par la suite, on a réfléchis et mis en place plan d'addressage pour notre réseau. Ce plan est disponible dans les fichier joint sous le nom de "Plan_Addressage.drawio"
 
-<img src="https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE/blob/main/Plan_Addressage.png" style="width: 200px">
+<img src="https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE/blob/main/Plan_Addressage.png" style="width: 800px">
 
 Une fois ces deux choses terminé, nous avons commener à réaliser la partie virtuelle puis dans les dernières séances nous nous sommes occupé de la partie physique.
 
