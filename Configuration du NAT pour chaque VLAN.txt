@@ -1,0 +1,116 @@
+Configuration du NAT pour chaque Vlan  :
+
+
+Vlan 1 :
+
+######## Configuration de la patte interne du routeur
+
+  conf t
+  interface FastEthernet 0/0.1
+  ip nat inside
+  exit
+
+######## Configuration de la patte externe du routeur
+
+  conf t
+  interface FastEthernet 0/1
+  ip nat outside
+  exit
+
+######## Configuration de l'ACL contenant une liste des adresses source interne qui seront traduite :
+
+
+  access-list 1 permit 192.168.10.0 0.0.0.7
+
+
+######## Configuration du pool d'adresses IP globale
+
+
+  ip nat pool POOL 10.213.0.0 10.213.255.254 netmask 255.255.0.0
+
+
+
+######### Activation du NAT dynamique :
+
+  ip nat inside source list 1 pool POOL
+  exit
+  wr mem
+
+
+
+Vlan 2 :
+
+
+  conf t
+  interface FastEthernet 0/0.2
+  ip nat inside
+  exit
+
+
+  conf t
+  interface FastEthernet 0/1
+  ip nat outside
+  exit
+
+
+  access-list 2 permit 192.168.20.0 0.0.0.7
+
+
+  ip nat inside source list 2 pool POOL
+  exit
+  wr mem
+
+
+Vlan 3 :
+
+
+  conf t
+  interface FastEthernet 0/0.3
+  ip nat inside
+  exit
+
+
+  conf t
+  interface FastEthernet 0/1
+  ip nat outside
+  exit
+
+
+  access-list 3 permit 192.168.30.0 0.0.0.7
+
+
+  ip nat inside source list 3 pool POOL
+  exit
+  wr mem
+
+
+Vlan 4 :
+
+
+  conf t
+  interface FastEthernet 0/0.4
+  ip nat inside
+  exit
+
+
+  conf t
+  interface FastEthernet 0/1
+  ip nat outside
+  exit
+
+
+  access-list 4 permit 192.168.40.0 0.0.0.7
+
+
+  ip nat inside source list 4 pool POOL
+  exit
+  wr mem
+
+
+
+
+
+
+
+
+
