@@ -222,4 +222,4 @@ Enfin nous avons veiller à ce que notre projet respecte bien la  méthodologie 
 
     * Identifier les dysfonctionnements du réseau local : Dans ce projet nous avons eu divers problèmes que se soit avec le DHCP ou les routeurs Mikrotik mais nous avons su régler les problèmes avec une approche rigoureuse cette apprentissage critique rejoint la composante essentielle **Utiliser une approche rigoureuse pour la résolution des dysfonctionnements**
 
-    * Savoir installer un poste client : Notre réseau ce compose de plusieurs PC dans les différentes partie (Virtuelle / Physique) donc nous avons effectivement configuré un bon nombre de poste ce qui permet de couvrir cette aprentissage critique. 
+    * Savoir installer un poste client : Notre réseau ce compose de plusieurs PC dans les différentes partie (Virtuelle / Physique) donc nous avons effectivement configuré un bon nombre de poste ce qui permet de couvrir cette apprentissage critique. 
