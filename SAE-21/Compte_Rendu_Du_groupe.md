@@ -1,10 +1,13 @@
 # SAE-21, Construire un réseau informatique pour une petite structure
+
 Durant la SAE-21, nous avons été chargés de mettre en place un réseau informatique pour une petite entreprise. 
 
 Une tâche que nous seront certainement amenés à réaliser dans un futur proche.
 
 
 ## Le cahier des charges est le suivant :
+---
+
 - Prévoir un plan d'adressage pour toutes les machines de notre réseau
 
 - La structure de l'entreprise comprend un service administratif, un service commercial et un service informatique
@@ -20,6 +23,7 @@ Une tâche que nous seront certainement amenés à réaliser dans un futur proch
 - Mise en place d'un peu de sécurité
 
 - Les différents accès : 
+
     - les administratifs devront pouvoir accéder à internet et aux serveurs internes et externe
 
     - Les commerciaux devront pouvoir accéder aux serveurs internes et externes
@@ -30,19 +34,23 @@ Une tâche que nous seront certainement amenés à réaliser dans un futur proch
 
 
 ## Matériel et logiciel choisis : 
+---
+
 - Nous avons choisi d'utiliser GNS3, car c'est selon nous le meilleur logiciel libre de simulation de réseau informatique.
 - Nous avons choisi d'utiliser Github pour la rendue et l'organisation parce que cela permet la mise en commun et l'organisation de nos travaux.
 - Pour ajouter de la sécurité, nous avons choisi les règles ACL, vue précédemment dans la ressource R103
 
-
 ## Mise en place du réseau
+---
+
 La mise en place du réseau se découpe en deux grandes parties :
 
 - Configuration de la partie virtuelle
 - Configuration de la partie physique
 
-
 ## Travail préliminaire
+---
+
 Premièrement, nous avons commencé par mettre en place un environnement de travail professionnelle. Pour cela nous avons décidé d'utiliser Github afin d'organiser et de mettre en communs tous nos fichiers. Vous pouvez retrouver le Github ICI : https://github.com/Abdessabourbaali/SAE21-Construire-un-reseau-informatique-pour-une-petite-structure-BAALI_RAZZAKI_CAPELLE
 
 Par la suite, on a réfléchi et mis en place un plan d'adressage pour notre réseau. Ce plan est disponible dans les fichiers joint sous le nom de "Plan_Addressage.png"
@@ -55,20 +63,25 @@ Par la suite, on a réfléchi et mis en place un plan d'adressage pour notre ré
 
 Une fois ces deux choses terminées, nous avons commencé à réaliser la partie virtuelle puis dans les dernières séances, nous nous sommes occupés de la partie physique.
 
-
 # Mise en place et configuration de la partie virtuelle
+---
+
 Afin de créer et mettre en place la partie virtuelle, on a dû configurer les routeurs, mettre en place des Vlans, un serveur DHCP, des règles ACL, des droits sur le service SSH, un serveur Web.
 
-
 ## Configuration du routeur
+---
+
 Pour configurer le routeur CISCO sur gns3, il faut commencer par configurer les adresse IP des pattes interne et externe du routeur. Nous avons par la suite ajouté le service DHCP pour une attribution automatiques des IP et pour finir on a mis en place OSPF.
 
-
 ## Configuration des Vlans (Switch)
+---
+
 Nous avons configuré le NAT sur chaque Vlan du routeur, pour cela il a fallu configurer les pattes interne et externe. On a dû aussi mettre en place l'ACL contenant une liste des adresses sources internes et pour finir la configuration du pool d'adresse IP globale.
 
 
 ## Configuration des Vlans (Routeur)
+---
+
 Pour les Vlan, on a dû configurer 4 Vlans, pour cela on utilise le code suivant :
 
     conf t
@@ -79,8 +92,9 @@ Pour les Vlan, on a dû configurer 4 Vlans, pour cela on utilise le code suivant
 
 On utilise ce code 4 fois pour la configuration des 4 Vlans.
 
-
 ## Configuration du pool DHCP pour les Vlans
+---
+
 Pour le pool d'adresses DHCP, il a fallu configurer chaque Vlan séparément. Pour cela on a utilisé le code suivant :
 
     ip dhcp pool VLAN10
@@ -90,8 +104,9 @@ Pour le pool d'adresses DHCP, il a fallu configurer chaque Vlan séparément. Po
 
 On utilise ce code 4 fois pour la configuration des 4 Vlans
 
-
 ## Configuration des ACL
+---
+
 Nous avons choisi les ACL pour ajouter de la sécurité vu dans la ressource R103. Les ACl (Access Control List), permet une gestion plus fine des droits d'accès.
 
 Pour la configaration des ACL, on a dû préalablement définir ce quelle devait filtrer. Puis appliquer la règle sur l'interface choisie.
@@ -102,9 +117,8 @@ Pour la configaration des ACL, on a dû préalablement définir ce quelle devait
 
 Ce code permet d'appliquer la règle ACL choisie sur une interface choisie.
 
-
 ## Configuration de SSH sur le routeur
-Afin de configurer le service SSH sur le routeur, il faut choisir les options qui nous concernent. 
+Afin de configurer le service SSH sur le routeur, il faut choisir les options qui nous concernent.
 
 Pour commencer on active le service SSH :
 
@@ -128,8 +142,9 @@ Nous avons donc sélectionné les options suivantes :
 ---
     transport input ssh
 
-
 ## Configuration des restrictions sur SSH
+---
+
 Pour configurer les restrictions sur les connexions SSH, il faut modifier le fichier sshd_config et ajouter les lignes suivantes :
 
 
@@ -141,11 +156,11 @@ Pour configurer les restrictions sur les connexions SSH, il faut modifier le fic
 
     PermitRootLogin no
 
-
 Cela a pour effet de contrôler qui peut se connecter
 
-
 ## Configuration du serveur web
+---
+
 Pour la mise en place du serveur web, nous avons choisi d'utiliser Apache2, une solution que nous avions déjà utilisée lors de TP antérieurs.
 
 Après avoir réalisé une page web assez simple, nous avons configuré le serveur Apache2 pour que notre page index.html soit accessible.
@@ -165,8 +180,8 @@ On a essayé de configurer les règles du firewall de façon que tout les VLAN a
 
 <br/>
 
-# configuration du serveur DNS : 
-
+# configuration du serveur DNS :
+---
 
 pour configurer notre serveur DNS, nous avons commencé par installer le paquet BIND9 ( sudo apt-get install bind9 ), et le paquet dnsutils ( sudo apt-get install dnsutils ) qui fournit des outils très pratiques pour tester et débugger le service DNS. 
 
@@ -177,5 +192,4 @@ db.NomdeNotreZone.fr
 named.conf.local
 
 named.conf.options
-
 
