@@ -156,3 +156,26 @@ Après avoir réalisé une page web assez simple, nous avons configuré le serve
 
 # Problème rencontré
 Lors de la configuration du routeur pour la partie physique, notre routeur ne répondez plus et ne possédais pas d'adresse IP. Nous avons donc du passer par le logiciel WinBox pour le reconfigurer.
+
+<br/>
+
+# configuration du firewall : 
+
+On a essayé de configurer les règles du firewall de façon que tout les VLAN aient accès à internet toute en les protègant des attaques qui peuvent venir de l'exterieur, pour ça on a autorisé l'accès juste aux trames TCP provenant du port 80 ou 443 et les paquets ICMP et les paquets DHCP provenant du port 67 et de destination le port 68 , et nous avons laisser tombé tout les autres paquets .
+
+<br/>
+
+# configuration du serveur DNS : 
+
+
+pour configurer notre serveur DNS, nous avons commencé par installer le paquet BIND9 ( sudo apt-get install bind9 ), et le paquet dnsutils ( sudo apt-get install dnsutils ) qui fournit des outils très pratiques pour tester et débugger le service DNS. 
+
+ensuite pour faire la correspondance entre notre nom de domaine qualifié et l'adresse IP de notre serveur WEB nous avons modifié trois fichiers de configuration qui ce trouvent dans le répertoire /etc/bind :
+
+db.NomdeNotreZone.fr
+
+named.conf.local
+
+named.conf.options
+
+
