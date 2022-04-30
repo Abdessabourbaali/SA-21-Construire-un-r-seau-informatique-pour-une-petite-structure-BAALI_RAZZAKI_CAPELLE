@@ -169,23 +169,26 @@ Après avoir réalisé une page web assez simple, nous avons configuré le serve
 
 # Mise en place et configuration de la partie physique
 
-# Problème rencontré
+## Problème rencontré
+---
+
 Lors de la configuration du routeur pour la partie physique, notre routeur ne répondez plus et ne possédais pas d'adresse IP. Nous avons donc du passer par le logiciel WinBox pour le reconfigurer.
 
 <br/>
 
-# configuration du firewall : 
+## Configuration du firewall
+---
 
 On a essayé de configurer les règles du firewall de façon que tout les VLAN aient accès à internet toute en les protègant des attaques qui peuvent venir de l'exterieur, pour ça on a autorisé l'accès juste aux trames TCP provenant du port 80 ou 443 et les paquets ICMP et les paquets DHCP provenant du port 67 et de destination le port 68 , et nous avons laisser tombé tout les autres paquets .
 
 <br/>
 
-# configuration du serveur DNS :
+## Configuration du serveur DNS
 ---
 
-pour configurer notre serveur DNS, nous avons commencé par installer le paquet BIND9 ( sudo apt-get install bind9 ), et le paquet dnsutils ( sudo apt-get install dnsutils ) qui fournit des outils très pratiques pour tester et débugger le service DNS. 
+Pour configurer notre serveur DNS, nous avons commencé par installer le paquet BIND9 ( sudo apt-get install bind9 ), et le paquet dnsutils ( sudo apt-get install dnsutils ) qui fournit des outils très pratiques pour tester et débugger le service DNS. 
 
-ensuite pour faire la correspondance entre notre nom de domaine qualifié et l'adresse IP de notre serveur WEB nous avons modifié trois fichiers de configuration qui ce trouvent dans le répertoire /etc/bind :
+Ensuite pour faire la correspondance entre notre nom de domaine qualifié et l'adresse IP de notre serveur WEB nous avons modifié trois fichiers de configuration qui ce trouvent dans le répertoire /etc/bind :
 
 db.NomdeNotreZone.fr
 
@@ -193,3 +196,30 @@ named.conf.local
 
 named.conf.options
 
+# Composantes essentielles et apprentissage couvert
+
+Enfin nous avons veiller à ce que notre projet respecte bien la  méthodologie d'évaluation :
+
+* Composantes essentielles :
+
+    * Choisir les solutions et technologies réseaux adaptées : Nous avons effectivement respecter cette composantes car nous avons fourni un travail de recherche et nous avons choisi plusieurs outils que nous avonis déjà utilisé par le passé.
+
+    * Respect des principes fondamentaux de la sécurité informatiques : Effectivement en protégeant notre réseau avec un firewall et en mettant en place des règles ACL sur notre routeurs cela rempli bien cette composante.
+
+    * Utiliser une approche rigoureuse pour la résolution des dysfonctionnements : Nous avons résolu nos dysfonctionnements, tout d'abord en faisant des recherches.
+
+    * Respect des règles métiers : Cettes composantes rejoint le respect des principes fondamentaux de la sécurité. En respectant la sécurité du réseaux et le respect du cahier des charges nous respectons les règles métier;
+
+    * Assurer une veille technologique : Effectivement en faisant des recherches lié au projet constamment, nous somme au point sur les dernières technologie réseaux.
+
+* Apprentissages critiques :
+
+    * Comprendre l’architecture des systèmes numériques et les principes du codage de l’information : En effectuant un schéma du réseaux que nous allons mettre en place, en codant les sites que nous avons mit en ligne sur le serveur WEB nous remplissant effectivement cette aprentissage critique.
+
+    * Savoir configurer les fonctions de base du réseau local : Dans ce projet, nous avons fait multiple manipulation de configuration réseaux avec les PC de l'IUT mais aussi avec les routeurs (Cisco/Mikrotik) que se soit sur la partie virtuelle ou physique.
+
+    * Maitrîser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et administration des réseaux et services fournis : Effectivement dans le cadre de ce projet nous avons utiliser 2 systèmes d'exploitation (Windows / Linux). Nous avons utiliser GNS3 sur les différents systèmes.
+
+    * Identifier les dysfonctionnements du réseau local : Dans ce projet nous avons eu divers problèmes que se soit avec le DHCP ou les routeurs Mikrotik mais nous avons su régler les problèmes avec une approche rigoureuse cette apprentissage critique rejoint la composante essentielle **Utiliser une approche rigoureuse pour la résolution des dysfonctionnements**
+
+    * Savoir installer un poste client : Notre réseau ce compose de plusieurs PC dans les différentes partie (Virtuelle / Physique) donc nous avons effectivement configuré un bon nombre de poste ce qui permet de couvrir cette aprentissage critique. 
